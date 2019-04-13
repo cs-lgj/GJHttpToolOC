@@ -1,0 +1,6 @@
+framework module GJHttpToolOC {
+  umbrella header "GJHttpToolOC-umbrella.h"
+
+  export *
+  module * { export * }
+}

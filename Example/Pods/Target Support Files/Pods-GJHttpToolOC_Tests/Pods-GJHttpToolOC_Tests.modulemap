@@ -1,0 +1,6 @@
+framework module Pods_GJHttpToolOC_Tests {
+  umbrella header "Pods-GJHttpToolOC_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
