@@ -22,7 +22,7 @@ pod 'GJHttpToolOC'
 
 ## Author
 
-arlenliugj@sina.cn, arlenliugj@sina.cn
+ArlenLiu, arlenliugj@sina.cn
 
 ## License
 
