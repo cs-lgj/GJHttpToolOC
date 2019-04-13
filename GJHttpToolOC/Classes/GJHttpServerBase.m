@@ -85,7 +85,7 @@ const NSTimeInterval HttpServerManage_RequestTimeoutInterval  = 25; //请求超�
             }else {
                 if (success) {
 #ifdef DEBUG
-                    if (!JudgeContainerCountIsNull(responseObject)) {
+                    if (!JudgeContainerCountIsNull1(responseObject)) {
                         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
                         NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
                         NSLog(@"%@",jsonStr);
@@ -156,7 +156,7 @@ const NSTimeInterval HttpServerManage_RequestTimeoutInterval  = 25; //请求超�
     return uploadTask;
 }
 
-BOOL JudgeContainerCountIsNull(id object)
+BOOL JudgeContainerCountIsNull1(id object)
 {
     if (object)
     {
