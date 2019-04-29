@@ -15,31 +15,27 @@ Objective-C 网络请求框架，封装自AFNetworking.
 
   s.ios.deployment_target = '8.0'
 
-  s.public_header_files = 'GJHttpToolOC/GJHttpTools.h'
-  s.source_files = 'GJHttpToolOC/GJHttpTools.h'
+  s.public_header_files = 'GJHttpToolOC/Classes/GJHttpTools.h'
+  s.source_files = 'GJHttpToolOC/Classes/GJHttpTools.h'
   
   s.subspec 'ATools' do |sa|
-      sa.source_files = 'GJHttpToolOC/*.{h,m}'
+      sa.source_files = 'GJHttpToolOC/Classes/ATools/*.{h,m}'
   end
   
   s.subspec 'Extension' do |se|
-      se.source_files = 'GJHttpToolOC/Extension/*.{h,m}'
+      se.source_files = 'GJHttpToolOC/Classes/Extension/*.{h,m}'
   end
   
   s.subspec 'Manager' do |sm|
-      sm.source_files = 'GJHttpToolOC/Manager/*.{h,m}'
+      sm.source_files = 'GJHttpToolOC/Classes/Manager/*.{h,m}'
   end
   
   s.subspec 'Root' do |sr|
-      sr.source_files = 'GJHttpToolOC/Root/*.{h,m}'
-  end
-  
-  s.subspec 'View' do |sv|
-      sv.source_files = 'GJHttpToolOC/View/*.{h,m}'
+      sr.source_files = 'GJHttpToolOC/Classes/Root/**/*'
   end
   
   s.subspec 'Web' do |sw|
-      sw.source_files = 'GJHttpToolOC/Web/*.{h,m}'
+      sw.source_files = 'GJHttpToolOC/Classes/Web/**/*'
   end
   
   # s.source_files = 'GJHttpToolOC/Classes/**/*'

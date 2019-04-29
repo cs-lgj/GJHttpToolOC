@@ -10,6 +10,11 @@
 #endif
 #endif
 
+#import "GJHttpTools.h"
+#import "GJHttpConstant.h"
+#import "GJHttpNetworkingManager.h"
+#import "GJHttpServerBase.h"
+#import "GJLoadingView.h"
 #import "MBProgressHUD+GJMBL.h"
 #import "NSString+GJCategory.h"
 #import "UIColor+Extension.h"
@@ -31,7 +36,6 @@
 #import "GJRootViewController.h"
 #import "GJTabBar.h"
 #import "GJTabBarController.h"
-#import "GJLoadingView.h"
 #import "GJUserDefaults.h"
 #import "NJKWebViewProgress.h"
 #import "NJKWebViewProgressView.h"
@@ -39,10 +43,6 @@
 #import "TKWebMedia.h"
 #import "TKWebViewController.h"
 #import "TKWKBaseWebController.h"
-#import "GJHttpConstant.h"
-#import "GJHttpNetworkingManager.h"
-#import "GJHttpServerBase.h"
-#import "GJHttpTools.h"
 
 FOUNDATION_EXPORT double GJHttpToolOCVersionNumber;
 FOUNDATION_EXPORT const unsigned char GJHttpToolOCVersionString[];
