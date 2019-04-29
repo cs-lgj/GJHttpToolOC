@@ -1,14 +1,14 @@
 //
 //  GJHttpNetworkingManager.m
-//  GaoYuanFeng
+//  LGJ
 //
-//  Created by hsrd on 2018/3/29.
-//  Copyright © 2018年 HSRD. All rights reserved.
+//  Created by LGJ on 2018/3/29.
+//  Copyright © 2018年 LGJ. All rights reserved.
 //
 
 #import "GJHttpNetworkingManager.h"
 
-static NSString * GJErrorDomain = @"com.hsrd.app";
+static NSString * GJErrorDomain = @"com.lgj.app";
 
 @implementation GJHttpNetworkingManager
 
@@ -59,13 +59,13 @@ static NSString * GJErrorDomain = @"com.hsrd.app";
     
     return  [GJHttpServerBase sendBaseRequestWithBaseString:self.httpBaseUrl pathString:pathUrl addHeaderField:heardDic methodType:kHttpRequestMethodType_Post paramType:requestType params:fullParameter success:^(NSURLResponse *urlResponse, id response) {
         if ([self handResponseIsSuccess:response]) {
-            BLOCK_SAFE(succeedCallback)(urlResponse,response[@"data"]);
+            if(succeedCallback) succeedCallback(urlResponse,response[@"data"]);
         }else {
             NSError *error = [self creatCustomError:response];
-            BLOCK_SAFE(failedCallback)(urlResponse,error);
+            if(failedCallback) failedCallback(urlResponse,error);
         }
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
-        BLOCK_SAFE(failedCallback)(urlResponse,error);
+        if(failedCallback) failedCallback(urlResponse,error);
     }];
 }
 
@@ -77,13 +77,13 @@ static NSString * GJErrorDomain = @"com.hsrd.app";
     
     return  [GJHttpServerBase sendBaseRequestWithBaseString:self.httpBaseUrl pathString:pathUrl addHeaderField:heardDic methodType:kHttpRequestMethodType_Post paramType:requestType params:fullParameter success:^(NSURLResponse *urlResponse, id response) {
         if ([self handResponseIsSuccess:response]) {
-            BLOCK_SAFE(succeedCallback)(urlResponse,response);
+            if(succeedCallback) succeedCallback(urlResponse,response);
         }else {
             NSError *error = [self creatCustomError:response];
-            BLOCK_SAFE(failedCallback)(urlResponse,error);
+            if(failedCallback) failedCallback(urlResponse,error);
         }
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
-        BLOCK_SAFE(failedCallback)(urlResponse,error);
+        if(failedCallback) failedCallback(urlResponse,error);
     }];
 }
 
@@ -95,13 +95,13 @@ static NSString * GJErrorDomain = @"com.hsrd.app";
     NSDictionary *fullParameter = [self configFullParameter:parameter];
     return  [GJHttpServerBase sendBaseRequestWithBaseString:self.httpBaseUrl pathString:pathUrl addHeaderField:heardDic methodType:kHttpRequestMethodType_Get paramType:kHttpRequestParameterType_KeyValue params:fullParameter success:^(NSURLResponse *urlResponse, id response) {
         if ([self handResponseIsSuccess:response]) {
-            BLOCK_SAFE(succeedCallback)(urlResponse,response[@"data"]);
+            if(succeedCallback) succeedCallback(urlResponse,response[@"data"]);
         }else {
             NSError *error = [self creatCustomError:response];
-            BLOCK_SAFE(failedCallback)(urlResponse,error);
+            if(failedCallback) failedCallback(urlResponse,error);
         }
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
-        BLOCK_SAFE(failedCallback)(urlResponse,error);
+        if(failedCallback) failedCallback(urlResponse,error);
     }];
     
 }
@@ -115,13 +115,13 @@ static NSString * GJErrorDomain = @"com.hsrd.app";
     }
     return  [GJHttpServerBase sendBaseRequestWithBaseString:self.httpBaseUrl pathString:parameterUrl addHeaderField:heardDic methodType:kHttpRequestMethodType_Get paramType:kHttpRequestParameterType_KeyValue params:nil success:^(NSURLResponse *urlResponse, id response) {
         if ([self handResponseIsSuccess:response]) {
-            BLOCK_SAFE(succeedCallback)(urlResponse,response[@"data"]);
+            if(succeedCallback) succeedCallback(urlResponse,response[@"data"]);
         }else {
             NSError *error = [self creatCustomError:response];
-            BLOCK_SAFE(failedCallback)(urlResponse,error);
+            if(failedCallback) failedCallback(urlResponse,error);
         }
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
-        BLOCK_SAFE(failedCallback)(urlResponse,error);
+        if(failedCallback) failedCallback(urlResponse,error);
     }];
 }
 
@@ -135,16 +135,16 @@ static NSString * GJErrorDomain = @"com.hsrd.app";
     NSDictionary *fullParameter = [self configFullParameter:params];
     
     [GJHttpServerBase sendBaseLoadImageWithBaseString:self.httpBaseUrl pathString:url addHeaderField:[self getCommonHeard] paramType:kHttpRequestParameterType_KeyValue params:fullParameter dataFormate:data progress:^(NSProgress *uploadProgress) {
-        BLOCK_SAFE(progeress)(uploadProgress);
+        if(progeress) progeress(uploadProgress);
     } success:^(NSURLResponse *urlResponse, id response) {
         if ([self handResponseIsSuccess:response]) {
-            BLOCK_SAFE(succeedCallback)(urlResponse,response);
+            if(succeedCallback) succeedCallback(urlResponse,response);
         }else {
             NSError *error = [self creatCustomError:response];
-            BLOCK_SAFE(failedCallback)(urlResponse,error);
+            if(failedCallback) failedCallback(urlResponse,error);
         }
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
-        BLOCK_SAFE(failedCallback)(urlResponse,error);
+        if(failedCallback) failedCallback(urlResponse,error);
     }];
 }
 
@@ -195,7 +195,7 @@ static NSString * GJErrorDomain = @"com.hsrd.app";
 - (NSDictionary *)configFullParameter:(NSDictionary *)parameter {
     NSMutableDictionary *fullParaDic = [[NSMutableDictionary alloc] initWithDictionary:parameter];
     // appid
-    [fullParaDic addEntriesFromDictionary:@{@"appid":@"com.hsrd.highlandwind"}];
+    [fullParaDic addEntriesFromDictionary:@{@"appid":@"com.lgj.highlandwind"}];
     return fullParaDic;
 }
 
@@ -206,76 +206,22 @@ static NSString * GJErrorDomain = @"com.hsrd.app";
     
     return [GJHttpServerBase sendBaseRequestWithBaseString:@"" pathString:url addHeaderField:heardDic methodType:kHttpRequestMethodType_Get paramType:kHttpRequestParameterType_KeyValue params:fullParameter success:^(NSURLResponse *urlResponse, id response) {
         if ([self handResponseIsSuccess:response]) {
-            BLOCK_SAFE(succeedCallback)(urlResponse,response[@"data"]);
+            if(succeedCallback) succeedCallback(urlResponse,response[@"data"]);
         }else {
             NSError *error = [self creatCustomError:response];
-            BLOCK_SAFE(failedCallback)(urlResponse,error);
+            if(failedCallback) failedCallback(urlResponse,error);
         }
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
-        BLOCK_SAFE(failedCallback)(urlResponse,error);
+        if(failedCallback) failedCallback(urlResponse,error);
     }];
 }
 
 
 #pragma mark - private fuction
 - (NSError *)creatCustomError:(id)response {
-    NSString *errorStr = JudgeContainerCountIsNull2(response[@"message"]) ? @"网络开小差咯～" : response[@"message"];
+    NSString *errorStr = JudgeContainerCountIsNull(response[@"message"]) ? @"网络开小差咯～" : response[@"message"];
     NSError *erro = [NSError errorWithDomain:GJErrorDomain code:[response[@"code"] integerValue] userInfo:@{NSLocalizedDescriptionKey:errorStr}];
     return  erro;
-}
-
-BOOL JudgeContainerCountIsNull2(id object)
-{
-    if (object)
-    {
-        if ([object isKindOfClass:[NSArray class]])
-        {
-            NSArray *array = (NSArray *)object;
-            if ([array count] > 0)
-            {
-                return NO;
-            }else
-            {
-                return YES;
-            }
-        }else if ([object isKindOfClass:[NSDictionary class]])
-        {
-            NSDictionary *dictionary = (NSDictionary *)object;
-            if ([[dictionary allKeys] count] > 0)
-            {
-                return NO;
-            }else
-            {
-                return YES;
-            }
-        }else if ([object isKindOfClass:[NSString class]])
-        {
-            NSString *temp = (NSString *)object;
-            NSString *string =  [temp stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            
-            if ([string length] > 0)
-            {
-                if ([string isEqualToString:@"(null)"] || [string isEqualToString:@"(NULL)"] || [string isEqualToString:@"null"] || [string isEqualToString:@"NULL"])
-                {
-                    return YES;
-                }else
-                {
-                    return NO;
-                }
-            }
-        }else if ([object isKindOfClass:[NSNumber class]])
-        {
-            NSNumber *number = (NSNumber *)object;
-            if ([number isEqualToNumber:[NSNumber numberWithInt:0]])
-            {
-                return YES;
-            }else
-            {
-                return NO;
-            }
-        }
-    }
-    return YES;
 }
 
 - (BOOL)handResponseIsSuccess:(id)response {
@@ -291,11 +237,11 @@ BOOL JudgeContainerCountIsNull2(id object)
 - (NSString *)httpBaseUrl
 {
     if (_httpConditionType == kHttpCondition_Develop) {
-        return @"http://192.168.1.105/gyfapp/public/";
+        return @"http://192.168.1.111/";
     } else if(_httpConditionType == kHttpCondition_BeatDistribution) {
-        return @"http://www.gyfapp.com/";
+        return @"http://www.lgj.com/";
     }else if(_httpConditionType == kHttpCondition_Distribution){
-        return @"http://www.qzylcn.com/";
+        return @"http://www.liugangjian.com/";
     }
     return nil;
 }

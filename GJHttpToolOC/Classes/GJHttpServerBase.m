@@ -1,9 +1,9 @@
 //
 //  GJHttpServerBase.m
-//  GaoYuanFeng
+//  LGJ
 //
-//  Created by hsrd on 2018/3/29.
-//  Copyright © 2018年 HSRD. All rights reserved.
+//  Created by LGJ on 2018/3/29.
+//  Copyright © 2018年 LGJ. All rights reserved.
 //
 
 #import "GJHttpServerBase.h"
@@ -85,7 +85,7 @@ const NSTimeInterval HttpServerManage_RequestTimeoutInterval  = 25; //请求超�
             }else {
                 if (success) {
 #ifdef DEBUG
-                    if (!JudgeContainerCountIsNull1(responseObject)) {
+                    if (!JudgeContainerCountIsNull(responseObject)) {
                         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
                         NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
                         NSLog(@"%@",jsonStr);
@@ -101,7 +101,6 @@ const NSTimeInterval HttpServerManage_RequestTimeoutInterval  = 25; //请求超�
     
     return dataTask;
 }
-
 
 + (NSURLSessionDataTask *)sendBaseLoadImageWithBaseString:(NSString *)baseString
                                                pathString:(NSString *)pathString
@@ -143,71 +142,17 @@ const NSTimeInterval HttpServerManage_RequestTimeoutInterval  = 25; //请求超�
     uploadTask = [manager
                   uploadTaskWithStreamedRequest:request
                   progress:^(NSProgress * _Nonnull uploadProgress) {
-                      BLOCK_SAFE(progress)(uploadProgress);
+                      if (progress) progress(uploadProgress);
                   }
                   completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
                       if (error) {
-                          BLOCK_SAFE(failure)(response,error);
+                          if (failure) failure(response,error);
                       } else {
-                          BLOCK_SAFE(success)(response,responseObject);
+                          if(success) success(response,responseObject);
                       }
                   }];
     [uploadTask resume];
     return uploadTask;
-}
-
-BOOL JudgeContainerCountIsNull1(id object)
-{
-    if (object)
-    {
-        if ([object isKindOfClass:[NSArray class]])
-        {
-            NSArray *array = (NSArray *)object;
-            if ([array count] > 0)
-            {
-                return NO;
-            }else
-            {
-                return YES;
-            }
-        }else if ([object isKindOfClass:[NSDictionary class]])
-        {
-            NSDictionary *dictionary = (NSDictionary *)object;
-            if ([[dictionary allKeys] count] > 0)
-            {
-                return NO;
-            }else
-            {
-                return YES;
-            }
-        }else if ([object isKindOfClass:[NSString class]])
-        {
-            NSString *temp = (NSString *)object;
-            NSString *string =  [temp stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            
-            if ([string length] > 0)
-            {
-                if ([string isEqualToString:@"(null)"] || [string isEqualToString:@"(NULL)"] || [string isEqualToString:@"null"] || [string isEqualToString:@"NULL"])
-                {
-                    return YES;
-                }else
-                {
-                    return NO;
-                }
-            }
-        }else if ([object isKindOfClass:[NSNumber class]])
-        {
-            NSNumber *number = (NSNumber *)object;
-            if ([number isEqualToNumber:[NSNumber numberWithInt:0]])
-            {
-                return YES;
-            }else
-            {
-                return NO;
-            }
-        }
-    }
-    return YES;
 }
 
 @end

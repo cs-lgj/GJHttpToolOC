@@ -1,17 +1,16 @@
 //
 //  GJHttpServerBase.h
-//  GaoYuanFeng
+//  LGJ
 //
-//  Created by hsrd on 2018/3/29.
-//  Copyright © 2018年 HSRD. All rights reserved.
+//  Created by LGJ on 2018/3/29.
+//  Copyright © 2018年 LGJ. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
+#import "GJFunctionManager.h"
 
 extern const NSTimeInterval HttpServerManage_RequestTimeoutInterval;
-
-#define BLOCK_SAFE(block)           if(block)block
 
 /*!
  请求方法类型

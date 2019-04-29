@@ -38,7 +38,17 @@ Objective-C 网络请求框架，封装自AFNetworking.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
+  
   s.dependency 'AFNetworking', '~> 3.1.0'
+  s.dependency 'MBProgressHUD', '~> 1.0.0'
+  s.dependency 'Masonry', '~> 1.0.2'
+  s.dependency 'SDWebImage', '~> 4.0.0'
+  s.dependency 'IQKeyboardManager', '~> 5.0.3'
+  s.dependency 'YYModel', '~> 1.0.4'
+  s.dependency 'MJRefresh', '~> 3.1.12'
+  
+  #s.dependency 'SDWebImage/GIF'
+  #s.dependency 'JPush', '~> 3.0.9'
   
   
 end

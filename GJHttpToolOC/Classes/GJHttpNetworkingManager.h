@@ -1,15 +1,13 @@
 //
 //  GJHttpNetworkingManager.h
-//  GaoYuanFeng
+//  LGJ
 //
-//  Created by hsrd on 2018/3/29.
-//  Copyright © 2018年 HSRD. All rights reserved.
+//  Created by LGJ on 2018/3/29.
+//  Copyright © 2018年 LGJ. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "GJHttpServerBase.h"
-
-#define HTTP_SESSION_ID  @"com.hsrdid"
 
 typedef enum {
     kHttpCondition_Develop = 0, // 测试
@@ -29,7 +27,6 @@ typedef enum {
 
 + (GJHttpNetworkingManager *)sharedInstance;
 
-
 /**
  *  默认Form post请求
  *
@@ -46,7 +43,6 @@ typedef enum {
 - (NSURLSessionDataTask *)requestAllDataPostWithPathUrl:(NSString *)pathUrl andParaDic:(NSDictionary *)parameter  andSucceedCallback:(HTTPTaskSuccessBlock)succeedCallback
                                        andFailedCallback:(HTTPTaskFailureBlock)failedCallback;
 
-
 /**
  *  Json post请求
  *
@@ -59,8 +55,6 @@ typedef enum {
  */
 - (NSURLSessionDataTask *)requestJsonPostWithPathUrl:(NSString *)pathUrl andParaDic:(NSDictionary *)parameter  andSucceedCallback:(HTTPTaskSuccessBlock)succeedCallback
                                    andFailedCallback:(HTTPTaskFailureBlock)failedCallback;
-
-
 
 /**
  *   发送Get请求
@@ -75,8 +69,6 @@ typedef enum {
 - (NSURLSessionDataTask *)requestGetWithPathUrl:(NSString *)pathUrl andParaDic:(NSDictionary *)parameter  andSucceedCallback:(HTTPTaskSuccessBlock)succeedCallback
                               andFailedCallback:(HTTPTaskFailureBlock)failedCallback;
 
-
-
 /**
  *   发送Get RESTful风格请求
  *
@@ -89,7 +81,6 @@ typedef enum {
  */
 - (NSURLSessionDataTask *)requestRESTfulGetWithPathUrl:(NSString *)pathUrl andParaDic:(NSArray *)parameter  andSucceedCallback:(HTTPTaskSuccessBlock)succeedCallback
                                      andFailedCallback:(HTTPTaskFailureBlock)failedCallback;
-
 
 /**
   发送Update 上传图片请求
@@ -105,9 +96,6 @@ typedef enum {
                  andProgress:(HTTPTaskProgress)progeress
           andSucceedCallback:(HTTPTaskSuccessBlock)succeedCallback
            andFailedCallback:(HTTPTaskFailureBlock)failedCallback;
-
-
-
 
 /**
  Get 请求全地址
