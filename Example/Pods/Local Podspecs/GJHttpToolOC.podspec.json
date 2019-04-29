@@ -1,6 +1,6 @@
 {
   "name": "GJHttpToolOC",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "summary": "Objective-C 网络请求框架，封装自AFNetworking",
   "description": "Objective-C 网络请求框架，封装自AFNetworking.",
   "homepage": "https://github.com/cs-lgj/GJHttpToolOC.git",
@@ -13,12 +13,13 @@
   },
   "source": {
     "git": "https://github.com/cs-lgj/GJHttpToolOC.git",
-    "tag": "0.1.1"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "GJHttpToolOC/Classes/**/*",
+  "public_header_files": "GJHttpToolOC/GJHttpTools.h",
+  "source_files": "GJHttpToolOC/GJHttpTools.h",
   "dependencies": {
     "AFNetworking": [
       "~> 3.1.0"
@@ -41,5 +42,31 @@
     "MJRefresh": [
       "~> 3.1.12"
     ]
-  }
+  },
+  "subspecs": [
+    {
+      "name": "ATools",
+      "source_files": "GJHttpToolOC/*.{h,m}"
+    },
+    {
+      "name": "Extension",
+      "source_files": "GJHttpToolOC/Extension/*.{h,m}"
+    },
+    {
+      "name": "Manager",
+      "source_files": "GJHttpToolOC/Manager/*.{h,m}"
+    },
+    {
+      "name": "Root",
+      "source_files": "GJHttpToolOC/Root/*.{h,m}"
+    },
+    {
+      "name": "View",
+      "source_files": "GJHttpToolOC/View/*.{h,m}"
+    },
+    {
+      "name": "Web",
+      "source_files": "GJHttpToolOC/Web/*.{h,m}"
+    }
+  ]
 }

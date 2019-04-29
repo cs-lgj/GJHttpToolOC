@@ -14,7 +14,61 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - GJHttpToolOC (0.1.1):
+  - GJHttpToolOC (0.1.2):
+    - AFNetworking (~> 3.1.0)
+    - GJHttpToolOC/ATools (= 0.1.2)
+    - GJHttpToolOC/Extension (= 0.1.2)
+    - GJHttpToolOC/Manager (= 0.1.2)
+    - GJHttpToolOC/Root (= 0.1.2)
+    - GJHttpToolOC/View (= 0.1.2)
+    - GJHttpToolOC/Web (= 0.1.2)
+    - IQKeyboardManager (~> 5.0.3)
+    - Masonry (~> 1.0.2)
+    - MBProgressHUD (~> 1.0.0)
+    - MJRefresh (~> 3.1.12)
+    - SDWebImage (~> 4.0.0)
+    - YYModel (~> 1.0.4)
+  - GJHttpToolOC/ATools (0.1.2):
+    - AFNetworking (~> 3.1.0)
+    - IQKeyboardManager (~> 5.0.3)
+    - Masonry (~> 1.0.2)
+    - MBProgressHUD (~> 1.0.0)
+    - MJRefresh (~> 3.1.12)
+    - SDWebImage (~> 4.0.0)
+    - YYModel (~> 1.0.4)
+  - GJHttpToolOC/Extension (0.1.2):
+    - AFNetworking (~> 3.1.0)
+    - IQKeyboardManager (~> 5.0.3)
+    - Masonry (~> 1.0.2)
+    - MBProgressHUD (~> 1.0.0)
+    - MJRefresh (~> 3.1.12)
+    - SDWebImage (~> 4.0.0)
+    - YYModel (~> 1.0.4)
+  - GJHttpToolOC/Manager (0.1.2):
+    - AFNetworking (~> 3.1.0)
+    - IQKeyboardManager (~> 5.0.3)
+    - Masonry (~> 1.0.2)
+    - MBProgressHUD (~> 1.0.0)
+    - MJRefresh (~> 3.1.12)
+    - SDWebImage (~> 4.0.0)
+    - YYModel (~> 1.0.4)
+  - GJHttpToolOC/Root (0.1.2):
+    - AFNetworking (~> 3.1.0)
+    - IQKeyboardManager (~> 5.0.3)
+    - Masonry (~> 1.0.2)
+    - MBProgressHUD (~> 1.0.0)
+    - MJRefresh (~> 3.1.12)
+    - SDWebImage (~> 4.0.0)
+    - YYModel (~> 1.0.4)
+  - GJHttpToolOC/View (0.1.2):
+    - AFNetworking (~> 3.1.0)
+    - IQKeyboardManager (~> 5.0.3)
+    - Masonry (~> 1.0.2)
+    - MBProgressHUD (~> 1.0.0)
+    - MJRefresh (~> 3.1.12)
+    - SDWebImage (~> 4.0.0)
+    - YYModel (~> 1.0.4)
+  - GJHttpToolOC/Web (0.1.2):
     - AFNetworking (~> 3.1.0)
     - IQKeyboardManager (~> 5.0.3)
     - Masonry (~> 1.0.2)
@@ -50,7 +104,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  GJHttpToolOC: a1e4c41e92ba693040c447619a7509a311359515
+  GJHttpToolOC: 35339c406a873dc5f9e186f79fd89e6378d0f580
   IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
